@@ -1,0 +1,27 @@
+  {% if template contains 'product' %}
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  {{ 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css' | stylesheet_tag }}
+  {{ 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css' | stylesheet_tag }}
+  {{ 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js' | script_tag }}
+  <script>
+    var $slick = jQuery.noConflict();
+    $slick(function(){
+      $slick('.main-thumbnail').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.thumbnail-slider'
+      });
+      $slick('.thumbnail-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.main-thumbnail',
+        dots: false,
+        arrows: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+    });
+  </script>
+  {% endif %}
